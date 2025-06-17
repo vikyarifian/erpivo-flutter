@@ -1,4 +1,6 @@
+import 'package:erpivo/landing_page.dart';
 import 'package:erpivo/main_page.dart';
+import 'package:erpivo/onboarding_page.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -38,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const MainPage()),
+        MaterialPageRoute(builder: (context) => const OnboardingPage()),
       );
     });
   }
@@ -55,14 +57,14 @@ class _SplashScreenState extends State<SplashScreen> {
             Image.asset('assets/logos/erpivo_logo.png', height: 120),
             const SizedBox(height: 20),
             // App Name
-            const Text(
-              'ERPivo',
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-                color: Colors.blueAccent,
-              ),
-            ),
+            // const Text(
+            //   'ERPivo',
+            //   style: TextStyle(
+            //     fontSize: 28,
+            //     fontWeight: FontWeight.bold,
+            //     color: Colors.blueAccent,
+            //   ),
+            // ),
             const SizedBox(height: 20),
             const CircularProgressIndicator(),
           ],
