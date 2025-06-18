@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'login_page.dart';
+import 'login_page.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -111,12 +111,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       child: ElevatedButton(
                         onPressed: () {
                           if (_currentPage == _onboardingData.length - 1) {
-                            // Navigator.pushReplacement(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //     builder: (_) => const LoginPage(),
-                            //   ),
-                            // );
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => const LoginPage(),
+                              ),
+                            );
                           } else {
                             _controller.nextPage(
                               duration: const Duration(milliseconds: 400),

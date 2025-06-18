@@ -1,5 +1,5 @@
-import 'package:erpivo/landing_page.dart';
-import 'package:erpivo/main_page.dart';
+// import 'package:erpivo/landing_page.dart';
+// import 'package:erpivo/main_page.dart';
 import 'package:erpivo/onboarding_page.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
