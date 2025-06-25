@@ -1,5 +1,8 @@
+import 'package:erpivo/dashboard_page.dart';
+import 'package:erpivo/fav_page.dart';
+import 'package:erpivo/forgot_password_page.dart';
+import 'package:erpivo/signup_page.dart';
 import 'package:flutter/material.dart';
-import 'signup_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -10,119 +13,140 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool _showPassword = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: ListView(
-          children: [
-            const SizedBox(height: 100),
-            const Center(
-              child: Text(
-                'Log in',
-                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.left,
+      backgroundColor: const Color(0xFFF2F2F2),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Container(
+            constraints: const BoxConstraints(maxWidth: 600, minWidth: 360),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Card(
+              color: Colors.white,
+              elevation: 4,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
               ),
-            ),
-            const SizedBox(height: 30),
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Email address',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 32,
                 ),
-              ),
-              keyboardType: TextInputType.emailAddress,
-            ),
-            const SizedBox(height: 20),
-            TextField(
-              obscureText: !_showPassword,
-              decoration: InputDecoration(
-                labelText: 'Password',
-                suffixIcon: GestureDetector(
-                  onTap: () {
-                    setState(() => _showPassword = !_showPassword);
-                  },
-                  child: TextButton(
-                    onPressed: () {
-                      setState(() => _showPassword = !_showPassword);
-                    },
-                    child: Icon(
-                      _showPassword ? Icons.visibility : Icons.visibility_off,
-                      // style: const TextStyle(fontSize: 12),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Text(
+                      'Masuk ke ERPivo',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                ),
-                // suffixIcon: Icon(Icons.visibility_off),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-              ),
-            ),
-            const SizedBox(height: 30),
-            SizedBox(
-              // width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  // Handle login
-                },
-                style: ElevatedButton.styleFrom(
-                  minimumSize: Size(
-                    MediaQuery.of(context).size.width * 0.5,
-                    55,
-                  ),
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  backgroundColor: Colors.blueAccent,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                child: const Text(
-                  'Log In',
-                  style: TextStyle(fontSize: 16, color: Colors.white),
-                ),
-              ),
-            ),
-            const SizedBox(height: 20),
-            TextButton(
-              style: TextButton.styleFrom(
-                backgroundColor: Colors.white,
-                overlayColor: Colors.white,
-              ),
-              onPressed: () {
-                // Forgot password logic
-              },
-              child: const Text(
-                'Forgot your password?',
-                style: TextStyle(color: Colors.blueAccent),
-              ),
-            ),
-            const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text("Don't have an account? "),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => const SignUpPage()),
-                    );
-                  },
-                  child: const Text(
-                    'Sign Up',
-                    style: TextStyle(
-                      color: Colors.blueAccent,
-                      fontWeight: FontWeight.bold,
+                    const SizedBox(height: 24),
+                    TextField(
+                      decoration: InputDecoration(
+                        labelText: 'Email',
+                        border: OutlineInputBorder(),
+                      ),
                     ),
-                  ),
+                    const SizedBox(height: 16),
+                    TextField(
+                      obscureText: !_showPassword,
+                      decoration: InputDecoration(
+                        labelText: 'Kata Sandi',
+                        border: OutlineInputBorder(),
+                        suffixIcon: GestureDetector(
+                          onTap: () {
+                            setState(() => _showPassword = !_showPassword);
+                          },
+                          child: TextButton(
+                            onPressed: () {
+                              setState(() => _showPassword = !_showPassword);
+                            },
+                            child: Icon(
+                              _showPassword
+                                  ? Icons.visibility
+                                  : Icons.visibility_off,
+                              // style: const TextStyle(fontSize: 12),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 24),
+                    SizedBox(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (_) => const FavPage()),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: Size(
+                            MediaQuery.of(context).size.width * 0.5,
+                            55,
+                          ),
+                          padding: const EdgeInsets.symmetric(vertical: 16),
+                          backgroundColor: Colors.blueAccent,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                        child: const Text(
+                          'Masuk',
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    TextButton(
+                      style: TextButton.styleFrom(overlayColor: Colors.white),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const ForgotPasswordPage(),
+                          ),
+                        );
+                      },
+                      child: const Text(
+                        'Lupa kata sandi?',
+                        style: TextStyle(
+                          color: Colors.blueAccent,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (_) => const SignUpPage()),
+                        );
+                      },
+                      child: const Text.rich(
+                        TextSpan(
+                          text: "Belum punya akun? ",
+                          children: [
+                            TextSpan(
+                              text: 'Daftar',
+                              style: TextStyle(
+                                color: Colors.blueAccent,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
-          ],
+          ),
         ),
       ),
     );
