@@ -1,5 +1,4 @@
 import 'package:erpivo/dashboard_page.dart';
-import 'package:erpivo/fav_page.dart';
 import 'package:erpivo/forgot_password_page.dart';
 import 'package:erpivo/signup_page.dart';
 import 'package:flutter/material.dart';
@@ -80,7 +79,9 @@ class _LoginPageState extends State<LoginPage> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (_) => const FavPage()),
+                            MaterialPageRoute(
+                              builder: (_) => const DashbiardPage(),
+                            ),
                           );
                         },
                         style: ElevatedButton.styleFrom(
